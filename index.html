@@ -6,6 +6,20 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
+        @font-face {
+            font-family: pix;
+            src: url(./IPix.ttf);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            font-family: pix;
+            transition-property: all;
+            transition-duration: 0.3s;
+            user-select: none;
+        }
+
         .board {
             position: absolute;
             height: 200px;
@@ -15,31 +29,50 @@
             top: 70px;
             border: 2px dotted black;
             border-radius: 20px;
+            text-align: center;
         }
-        .fish{
+
+        .fish {
             position: absolute;
-            background-color: #fff;
             height: 400px;
             width: 400px;
-            top:320px;
+            top: 320px;
             left: 150px;
             border: 0;
+            font-size: 80px;
+            background-color: rgba(255, 255, 255, 0);
+        }
+        .title{
+            font-size: 30px;
+            margin-top: 20px;
+        }
+        .today{
+            font-size: 45px;
+            font-weight: bold;
+            margin-top: 20px;
         }
     </style>
     <script>
-        
-        function plus(){
-            alert(111);
+        var count = 0;
+        function plus() {
+            count += 1;
+            x = document.getElementById("count");
+            x.innerHTML = count;
         }
+        document.oncontextmenu = function (e) { //整个页面的js事件
+                return false; //阻止右键弹窗
+            };
     </script>
     <title>Document</title>
 </head>
 
 <body>
     <div class="board">
-        功德+1
+        <div class="title">敲赛博木鱼，积电子功德</h1></div>
+        <div class="today">今日功德数: <span id="count">0</span></div>
+        <div class="title">点击木鱼快速获取功德</div>
     </div>
-    <button class="fish" onclick="plus()"></button>
+    <button class="fish" onclick="plus()" oncontextmenu="plus()"></button>
     <div class="pic" style="font-size: 4px; line-height: 12px;font-family: monospace;">
         ^................................................................................................................................................................................................................................................<br>
         ^................................................................................................................................................................................................................................................<br>
